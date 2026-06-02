@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Analysis App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Sentiment Analysis</h1>
+      <p class="subtitle">Analyze the sentiment of your text using Azure AI</p>
+
+      <form id="sentimentForm">
+        <div class="form-group">
+          <label for="textInput">Enter text to analyze:</label>
+          <textarea 
+            id="textInput" 
+            placeholder="Type or paste your text here..."
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Analyze Sentiment</button>
+      </form>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Analyzing sentiment...</p>
+      </div>
+
+      <div id="result" class="result hidden">
+        <div class="sentiment-summary">
+          <h2>Results</h2>
+          <div class="sentiment-badge" id="sentimentBadge"></div>
+          
+          <div class="scores">
+            <div class="score-item">
+              <span class="score-label">Positive</span>
+              <div class="score-bar">
+                <div class="score-fill positive" id="positiveScore"></div>
+              </div>
+              <span class="score-value" id="positiveValue">0%</span>
+            </div>
+            <div class="score-item">
+              <span class="score-label">Neutral</span>
+              <div class="score-bar">
+                <div class="score-fill neutral" id="neutralScore"></div>
+              </div>
+              <span class="score-value" id="neutralValue">0%</span>
+            </div>
+            <div class="score-item">
+              <span class="score-label">Negative</span>
+              <div class="score-bar">
+                <div class="score-fill negative" id="negativeScore"></div>
+              </div>
+              <span class="score-value" id="negativeValue">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="sentencesSection" class="sentences-section">
+          <h3>Sentence-by-Sentence Analysis</h3>
+          <div id="sentencesList"></div>
+        </div>
+      </div>
+
+      <div id="error" class="error hidden"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
